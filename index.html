@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Betancourth | Portafolio</title>
+<meta name="description" content="Portafolio de Mario Stevenson Betancourth Galindo, desarrollador y especialista IT en Cali, Colombia.">
+
+<style>
+  :root{
+    --bg:#0b0f14; --surface:#111820; --text:#d6e1ec; --muted:#7f90a3;
+    --accent:#3ddc97; --blue:#6cb6ff; --border:#1f2a37; --soft:#0f2a22;
+    --heading:#e8f0f8; --on-accent:#06130d; --grid:rgba(61,220,151,.04);
+    --radius:8px; --maxw:1020px;
+    --mono:ui-monospace,"JetBrains Mono","Fira Code",SFMono-Regular,Consolas,Menlo,monospace;
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6f8; --surface:#ffffff; --text:#1b2733; --muted:#5d6d7e;
+    --accent:#0a8a5c; --blue:#1f6feb; --border:#d5dde5; --soft:#e3f4ec;
+    --heading:#0f1b26; --on-accent:#ffffff; --grid:rgba(10,138,92,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--text);font:15px/1.7 var(--mono);background-color:var(--bg);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:32px 32px}
+  a{color:var(--accent)}
+  ::selection{background:var(--accent);color:var(--on-accent)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* Navegación */
+  header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+  .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:14px;white-space:nowrap}
+  .links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .links > a{color:var(--muted);text-decoration:none;font-size:13px}
+  .links > a::before{content:"./";color:var(--accent);opacity:.7}
+  .links > a:hover{color:var(--accent)}
+  .tool{background:none;border:1px solid var(--border);color:var(--text);border-radius:6px;
+    padding:4px 9px;cursor:pointer;font:600 13px var(--mono)}
+  .tool:hover{border-color:var(--accent)}
+  .langs{display:flex}
+  .langs button{background:none;border:1px solid var(--border);color:var(--muted);
+    padding:4px 10px;cursor:pointer;font:700 12px var(--mono)}
+  .langs button:first-child{border-radius:6px 0 0 6px}
+  .langs button:last-child{border-radius:0 6px 6px 0;border-left:0}
+  .langs button.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  @media(max-width:720px){.links > a.hide-m{display:none}}
+  @media(max-width:560px){.links > a{display:none}}
+
+  /* Hero: ventana de terminal */
+  .hero{padding:56px 0 48px}
+  .hero .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+  @media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.avatar{order:-1}}
+  .term{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  .term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--border);
+    background:color-mix(in srgb,var(--surface) 70%,var(--bg))}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar i:nth-child(1){background:#ff5f56}
+  .term-bar i:nth-child(2){background:#ffbd2e}
+  .term-bar i:nth-child(3){background:#27c93f}
+  .term-bar span{margin-left:10px;color:var(--muted);font-size:12px}
+  .term-body{padding:20px 22px 24px}
+  .line{color:var(--muted);font-size:13.5px;margin:16px 0 6px}
+  .line:first-child{margin-top:0}
+  .line .p{color:var(--accent);margin-right:8px}
+  .cursor{display:inline-block;width:9px;height:16px;background:var(--accent);vertical-align:-3px;
+    margin-left:4px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  .term-body > *{opacity:0;animation:rise .45s ease forwards}
+  .term-body > *:nth-child(1){animation-delay:.05s}
+  .term-body > *:nth-child(2){animation-delay:.2s}
+  .term-body > *:nth-child(3){animation-delay:.4s}
+  .term-body > *:nth-child(4){animation-delay:.55s}
+  .term-body > *:nth-child(5){animation-delay:.75s}
+  .term-body > *:nth-child(6){animation-delay:.9s}
+  .term-body > *:nth-child(7){animation-delay:1.1s}
+  .term-body > *:nth-child(8){animation-delay:1.25s}
+  @media(prefers-reduced-motion:reduce){.term-body > *{animation:none;opacity:1}.cursor{animation:none}}
+  h1{font-size:clamp(24px,5vw,40px);line-height:1.15;margin:0;color:var(--heading)}
+  .eyebrow{color:var(--blue);font-size:17px;font-weight:600}
+  .tagline{color:var(--text);margin:0;max-width:560px}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  .btn{display:inline-block;padding:9px 16px;border-radius:6px;text-decoration:none;
+    font-weight:700;font-size:13.5px;border:1px solid var(--accent);transition:box-shadow .2s}
+  .btn.primary{background:var(--accent);color:var(--on-accent)}
+  .btn.ghost{color:var(--accent)}
+  .btn:hover{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 28%,transparent)}
+  .avatar{width:150px;height:150px;border-radius:10px;background:var(--surface);color:var(--accent);
+    display:grid;place-items:center;font-size:46px;font-weight:700;overflow:hidden;
+    border:2px solid var(--accent);box-shadow:0 0 28px color-mix(in srgb,var(--accent) 25%,transparent)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+
+  /* Secciones */
+  section{padding:52px 0;border-top:1px dashed var(--border)}
+  h2{font-size:22px;margin:0 0 24px;color:var(--heading)}
+  h2::before{content:"## ";color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .card h3{margin:0 0 6px;font-size:16px;color:var(--blue)}
+  .card p{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .card.empty{border-style:dashed;background:transparent}
+  .card.empty:hover{transform:none}
+  .card.empty h3{color:var(--muted)}
+  .card.empty h3::before{content:"// TODO: ";color:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none}
+  .tags li{color:var(--accent);background:var(--soft);font-size:12.5px;padding:1px 9px;border-radius:4px;
+    border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  .card .row{display:flex;gap:14px;font-size:13.5px}
+  .meta{color:var(--muted);font-size:13px}
+  .about p{max-width:760px;margin:0 0 14px}
+
+  /* Línea de tiempo tipo git log */
+  .timeline{border-left:1px solid var(--border);margin-left:6px;padding-left:22px}
+  .item{position:relative;margin-bottom:26px}
+  .item::before{content:"";position:absolute;left:-28px;top:7px;width:11px;height:11px;
+    background:var(--bg);border-radius:50%;border:2px solid var(--accent)}
+  .item h3{margin:0;font-size:16px;color:var(--heading)}
+  .item .meta{margin:2px 0 8px}
+  .item ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+
+  /* Habilidades */
+  .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .skills h3{margin:0 0 10px;font-size:14px;color:var(--blue)}
+  .skills h3::before{content:"// ";color:var(--muted)}
+
+  /* Certificaciones */
+  .certs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+  .certs li{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:6px;
+    padding:10px 14px 10px 34px;font-size:13.5px}
+  .certs li::before{content:"✓";position:absolute;left:14px;color:var(--accent);font-weight:700}
+  .certs b{display:block;font-weight:600;color:var(--heading)}
+  .certs span{color:var(--muted)}
+
+  /* Contacto y pie */
+  .contact-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px}
+  footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px;border-top:1px dashed var(--border)}
+  footer .wrap::before{content:"$ exit  # ";color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" id="brand"></a>
+    <nav class="links">
+      <a href="#sobre-mi" class="hide-m" data-i18n="nav_about"></a>
+      <a href="#habilidades" class="hide-m" data-i18n="nav_skills"></a>
+      <a href="#proyectos" data-i18n="nav_projects"></a>
+      <a href="#experiencia" class="hide-m" data-i18n="nav_exp"></a>
+      <a href="#blog" class="hide-m" data-i18n="nav_blog"></a>
+      <a href="#contacto" data-i18n="nav_contact"></a>
+      <div class="langs" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="tool" id="themeBtn" aria-label="Tema / Theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div class="term">
+        <div class="term-bar"><i></i><i></i><i></i><span>visitor@portfolio: ~</span></div>
+        <div class="term-body">
+          <div class="line"><span class="p">$</span>whoami</div>
+          <h1 id="nombre"></h1>
+          <div class="line"><span class="p">$</span>cat role.txt</div>
+          <div class="eyebrow" id="rol"></div>
+          <div class="line"><span class="p">$</span>echo $MISSION</div>
+          <p class="tagline" id="frase"></p>
+          <div class="line"><span class="p">$</span>./contact.sh<span class="cursor"></span></div>
+          <div class="btns" id="heroBtns"></div>
+        </div>
+      </div>
+      <div class="avatar" id="avatar"></div>
+    </div>
+  </div>
+
+  <section id="sobre-mi"><div class="wrap about">
+    <h2 data-i18n="h_about"></h2><div id="sobre"></div>
+  </div></section>
+
+  <section id="habilidades"><div class="wrap">
+    <h2 data-i18n="h_skills"></h2><div class="skills" id="skills"></div>
+  </div></section>
+
+  <section id="proyectos"><div class="wrap">
+    <h2 data-i18n="h_projects"></h2><div class="grid" id="proyectosGrid"></div>
+  </div></section>
+
+  <section id="experiencia"><div class="wrap">
+    <h2 data-i18n="h_exp"></h2><div class="timeline" id="exp"></div>
+  </div></section>
+
+  <section id="formacion"><div class="wrap">
+    <h2 data-i18n="h_edu"></h2><div class="timeline" id="edu"></div>
+  </div></section>
+
+  <section id="certificaciones"><div class="wrap">
+    <h2 data-i18n="h_certs"></h2><ul class="certs" id="certs"></ul>
+  </div></section>
+
+  <section id="blog"><div class="wrap">
+    <h2 data-i18n="h_blog"></h2><div class="grid" id="blogGrid"></div>
+  </div></section>
+
+  <section id="contacto"><div class="wrap">
+    <h2 data-i18n="h_contact"></h2>
+    <p id="contactoTxt" style="max-width:620px"></p>
+    <ul class="contact-list" id="contactList"></ul>
+    <div class="btns" id="contactBtns"></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap" id="footer"></div></footer>
+
+<script>
+/* =====================================================================
+   CONFIG: AQUÍ EDITAS TODO TU CONTENIDO
+   ===================================================================== */
+const CONFIG = {
+
+  /* ---------- DATOS COMUNES (no dependen del idioma) ---------- */
+  comun: {
+    nombre: "Mario Betancourth",
+    foto: "foto.jpg",
+    email: "mariobetan15@gmail.com",
+    telefono: "+57 315 9546525",
+    linkedin: "https://www.linkedin.com/in/mario-steven-galindo-255238208/",
+    github: "https://github.com/moingeagle-sys",
+    cvUrl: { es: "hojadevida.pdf", en: "resume.pdf" },
+    idiomaInicial: ""
+  },
+
+  /* ---------- ESPAÑOL ---------- */
+  es: {
+    rol: "Desarrollador / Especialista IT",
+    frase: "Construyo software y administro IT. Me apasionan el desarrollo de videojuegos y la tecnología.",
+    sobreMi: [
+      "Profesional multifuncional con experiencia en IT y conocimientos en HTML, CSS, C#, C++, PHP, Java, JavaScript y Python. Tengo conocimientos en bases de datos SQL, ciberseguridad, atención al cliente y logística de embalajes y envíos.",
+      "Dominio del inglés (B2+) y experiencia como intérprete. Trabajo bien en equipo y disfruto resolver problemas de forma eficiente. Actualmente estudio Análisis y Desarrollo de Software en el SENA (modalidad virtual).",
+      ""
+    ],
+    disponibilidad: "Disponibilidad inmediata · Remoto / Híbrido / Presencial",
+    ciudad: "Cali, Colombia",
+    contactoTexto: "¿Tienes una vacante o un proyecto? Escríbeme, respondo rápido.",
+
+    habilidades: [
+      { grupo: "Lenguajes", items: ["Python","Java","JavaScript","C#","C++","PHP","SQL"] },
+      { grupo: "Frameworks / Web", items: ["React","Angular","Node.js",".NET","Django","Unity"] },
+      { grupo: "Bases de datos", items: ["PostgreSQL","MySQL","SQL Server","Oracle Database"] },
+      { grupo: "Cloud / DevOps", items: ["AWS","Azure","Google Cloud","Git","CI/CD","Docker"] },
+      { grupo: "Metodologías / Herramientas", items: ["Scrum","Jira","GitHub","GitLab","Trello"] },
+      { grupo: "Idiomas", items: ["Español (nativo)","Inglés (B2+)"] }
+    ],
+
+    proyectos: [
+      { nombre:"Allegory of fate", descripcion:"A 2d top down RPG", tecnologias:["Unity","C#"], demo:"https://shadow-heartbeat.itch.io/allegory-of-fate", codigo:"https://github.com/moingeagle-sys/Allegory_of_fate" },
+      { nombre:"Ashes of winter", descripcion:"3D game - horror games history", tecnologias:["godot","C#"] },
+    ],
+
+    experiencia: [
+      {
+        empresa: "OLSOFTWARE S.A.S",
+        cargo: "Junior software developer",
+        periodo: "Septiembre 2021 – Marzo 2023",
+        logros: [
+          "Instalación y configuración de servidores; administración de almacenamiento local y en la nube.",
+          "Configuración y administración de sistemas operativos, servicios de red y aplicaciones.",
+          "Solución de problemas de infraestructura y sistemas; monitoreo de software y dispositivos.",
+          "Gestión de parches de SO y herramientas de administración de configuración.",
+          "Embalaje y manejo de envíos formales."
+        ]
+      }
+    ],
+
+    formacion: [
+      { titulo: "Análisis y Desarrollo de Software", institucion: "SENA", periodo: "Sep 2026 – Dic 2028", estado: "En curso (virtual)" },
+      { titulo: "Licenciatura en Lenguas Extranjeras (Inglés-Francés)", institucion: "Universidad Santiago de Cali (USC)", periodo: "Ago – Dic 2025", estado: "Interrumpido" },
+      { titulo: "Tecnología en Desarrollo de Software", institucion: "CUDES", periodo: "Ene 2019 – Dic 2022", estado: "Interrumpido" }
+    ],
+
+    certificaciones: [
+      { nombre: "Python", emisor: "Cisco Networking Academy", fecha: "Nov 2026" },
+      { nombre: "Microsoft Power BI Data Analyst (PL-300)", emisor: "Microsoft", fecha: "Oct 2026" },
+      { nombre: "Procesos de soporte técnico para el mantenimiento de equipos de cómputo", emisor: "SENA", fecha: "Sep 2026" },
+      { nombre: "Cybersecurity Defense Analyst Career Path", emisor: "Cisco Networking Academy", fecha: "Ago 2026" },
+      { nombre: "Implementación de servicios de computación en la nube", emisor: "SENA", fecha: "Ago 2026" },
+      { nombre: "Logística y cadena de suministros", emisor: "Coursera", fecha: "Ago 2026" },
+      { nombre: "Técnico de computación", emisor: "Coursera", fecha: "Ago 2026" },
+      { nombre: "Integración de tecnologías del aprendizaje, la participación y el conocimiento", emisor: "SENA", fecha: "Jul 2026" },
+      { nombre: "Programación en JavaScript", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
+      { nombre: "CRM", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
+      { nombre: "Programación en Java", emisor: "Politécnico de Colombia", fecha: "Ago 2025" },
+      { nombre: "Programación en PHP", emisor: "Politécnico de Colombia", fecha: "Jul 2025" }
+    ],
+
+    /* Ejemplo de entrada de blog:
+       { titulo:"Lo que aprendí de Docker", fecha:"Nov 2026", resumen:"Dos líneas.", url:"https://..." },
+    */
+    blog: [
+      { titulo:"Lo que aprendí de Unity", fecha:"2025", resumen:"Construir bases y logica para un juego", url:"https://..." },
+    ]
+  },
+
+  /* ---------- ENGLISH ---------- */
+  en: {
+    rol: "Developer / IT Specialist",
+    frase: "I build software and manage infrastructure. I'm passionate about game development and technology.",
+    sobreMi: [
+      "Multidisciplinary professional with experience in software infrastructure and knowledge of HTML, CSS, C#, C++, PHP, Java, JavaScript and Python. Solid background in SQL databases, cybersecurity, customer service and packaging and shipping logistics.",
+      "Upper-intermediate English (B2+) with experience as an interpreter. I work well in teams and enjoy solving problems efficiently. I am currently studying Software Analysis and Development at SENA (online program).",
+      ""   // <- write a more personal paragraph here or delete it
+    ],
+    disponibilidad: "Available immediately · Remote / Hybrid / On-site",
+    ciudad: "Cali, Colombia",
+    contactoTexto: "Have a job opening or a project? Write to me, I reply quickly.",
+
+    habilidades: [
+      { grupo: "Languages", items: ["Python","Java","JavaScript","C#","C++","PHP","SQL"] },
+      { grupo: "Frameworks / Web", items: ["React","Angular","Node.js",".NET","Django","Unity"] },
+      { grupo: "Databases", items: ["PostgreSQL","MySQL","SQL Server","Oracle Database"] },
+      { grupo: "Cloud / DevOps", items: ["AWS","Azure","Google Cloud","Git","CI/CD","Docker"] },
+      { grupo: "Methodologies / Tools", items: ["Scrum","Jira","GitHub","GitLab","Trello"] },
+      { grupo: "Languages (spoken)", items: ["Spanish (native)","English (B2+)"] }
+    ],
+
+    /* Project example (copy it inside the brackets):
+       { nombre:"My Unity game", descripcion:"What it does.", tecnologias:["Unity","C#"], demo:"https://...", codigo:"https://github.com/..." },
+    */
+    proyectos: [
+      { nombre:"Allegory of fate", descripcion:"A 2d top down RPG game.", tecnologias:["Unity","C#"], demo:"https://shadow-heartbeat.itch.io/allegory-of-fate" },
+    ],
+
+    experiencia: [
+      {
+        empresa: "OLSOFTWARE S.A.S",
+        cargo: "Junior software developer",
+        periodo: "September 2021 – March 2023",
+        logros: [
+          "Installed and configured servers; managed local and cloud storage systems.",
+          "Configured and administered operating systems, network services and applications.",
+          "Troubleshot infrastructure and system issues; monitored software and devices.",
+          "Managed OS patches and configuration management tools.",
+          "Packaging and handling of formal shipments."
+        ]
+      }
+    ],
+
+    formacion: [
+      { titulo: "Software Analysis and Development", institucion: "SENA", periodo: "Sep 2026 – Dec 2028", estado: "In progress (online)" },
+      { titulo: "Bachelor's in Foreign Languages (English-French)", institucion: "Universidad Santiago de Cali (USC)", periodo: "Aug – Dec 2025", estado: "Not completed" },
+      { titulo: "Technologist in Software Development", institucion: "CUDES", periodo: "Jan 2019 – Dec 2022", estado: "Not completed" }
+    ],
+
+    certificaciones: [
+      { nombre: "Python", emisor: "Cisco Networking Academy", fecha: "Nov 2026" },
+      { nombre: "Microsoft Power BI Data Analyst (PL-300)", emisor: "Microsoft", fecha: "Oct 2026" },
+      { nombre: "Technical Support Processes for Computer Equipment Maintenance", emisor: "SENA", fecha: "Sep 2026" },
+      { nombre: "Cybersecurity Defense Analyst Career Path", emisor: "Cisco Networking Academy", fecha: "Aug 2026" },
+      { nombre: "Implementation of Cloud Computing Services", emisor: "SENA", fecha: "Aug 2026" },
+      { nombre: "Logistics and Supply Chain", emisor: "Coursera", fecha: "Aug 2026" },
+      { nombre: "Computer Technician", emisor: "Coursera", fecha: "Aug 2026" },
+      { nombre: "Integration of Learning, Participation and Knowledge Technologies", emisor: "SENA", fecha: "Jul 2026" },
+      { nombre: "JavaScript Programming", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
+      { nombre: "CRM", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
+      { nombre: "Java Programming", emisor: "Politécnico de Colombia", fecha: "Aug 2025" },
+      { nombre: "PHP Programming", emisor: "Politécnico de Colombia", fecha: "Jul 2025" }
+    ],
+
+    /* Blog post example:
+       { titulo:"What I learned about Docker", fecha:"Nov 2026", resumen:"Two lines.", url:"https://..." },
+    */
+    blog: []
+  }
+};
+
+/* =====================================================================
+   TEXTOS FIJOS DE LA INTERFAZ (títulos de secciones, botones)
+   ===================================================================== */
+const UI = {
+  es: {
+    nav_about:"Sobre mí", nav_skills:"Habilidades", nav_projects:"Proyectos", nav_exp:"Experiencia", nav_blog:"Blog", nav_contact:"Contacto",
+    h_about:"Sobre mí", h_skills:"Habilidades", h_projects:"Proyectos", h_exp:"Experiencia", h_edu:"Formación",
+    h_certs:"Certificaciones", h_blog:"Blog", h_contact:"Contacto",
+    btn_contact:"Contáctame", btn_projects:"Ver proyectos", btn_cv:"Descargar CV", btn_mail:"Enviar correo",
+    demo:"Ver demo", code:"Código",
+    empty_project:"Proyecto", empty_project_txt:"Agrega aquí un proyecto: edita la lista <b>proyectos</b> en CONFIG.",
+    empty_post:"Artículo", empty_post_txt:"Próximamente. Agrega entradas en la lista <b>blog</b> de CONFIG.",
+    empty_exp:"Agrega tu experiencia en CONFIG.", add_title:"Agrega tu cargo"
+  },
+  en: {
+    nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_exp:"Experience", nav_blog:"Blog", nav_contact:"Contact",
+    h_about:"About me", h_skills:"Skills", h_projects:"Projects", h_exp:"Experience", h_edu:"Education",
+    h_certs:"Certifications", h_blog:"Blog", h_contact:"Contact",
+    btn_contact:"Contact me", btn_projects:"View projects", btn_cv:"Download CV", btn_mail:"Send email",
+    demo:"Live demo", code:"Code",
+    empty_project:"Project", empty_project_txt:"Add a project here: edit the <b>proyectos</b> list in CONFIG.",
+    empty_post:"Article", empty_post_txt:"Coming soon. Add entries to the <b>blog</b> list in CONFIG.",
+    empty_exp:"Add your experience in CONFIG.", add_title:"Add your job title"
+  }
+};
+
+/* =====================================================================
+   CÓDIGO QUE DIBUJA LA PÁGINA (no necesitas modificarlo)
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = u => /^(https?:|mailto:|tel:|#|[\w./-]+$)/i.test(u) ? esc(u) : "#";
+const K = CONFIG.comun;
+
+function render(lang){
+  const T = CONFIG[lang], U = UI[lang];
+  document.documentElement.lang = lang;
+  try { localStorage.setItem("lang", lang); } catch(e){}
+
+  // Textos fijos + botones de idioma
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = U[el.dataset.i18n]);
+  document.querySelectorAll(".langs button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+
+  // Marca y hero
+  const partes = K.nombre.split(" ");
+  const iniciales = partes.filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+  $("brand").textContent = partes[0].toLowerCase() + "@portfolio:~$";
+  $("rol").textContent = T.rol;
+  $("nombre").textContent = K.nombre;
+  $("frase").textContent = T.frase;
+  $("avatar").innerHTML = K.foto ? `<img src="${safeUrl(K.foto)}" alt="${esc(K.nombre)}">` : esc(iniciales);
+  document.title = `${partes.slice(0,3).join(" ")} | ${lang === "es" ? "Portafolio" : "Portfolio"}`;
+
+  const cv = K.cvUrl[lang];
+  $("heroBtns").innerHTML =
+    `<a class="btn primary" href="#contacto">${U.btn_contact}</a>` +
+    `<a class="btn ghost" href="#proyectos">${U.btn_projects}</a>` +
+    (cv ? `<a class="btn ghost" href="${safeUrl(cv)}" download>${U.btn_cv}</a>` : "");
+
+  // Sobre mí
+  $("sobre").innerHTML = T.sobreMi.filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("")
+    + (T.disponibilidad ? `<p class="meta">${esc(T.disponibilidad)}</p>` : "");
+
+  // Habilidades
+  $("skills").innerHTML = T.habilidades.map(g =>
+    `<div class="card"><h3>${esc(g.grupo)}</h3><ul class="tags" style="margin:0">${g.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+
+  const vacia = (t, x) => `<div class="card empty"><h3>${t}</h3><p>${x}</p></div>`;
+
+  // Proyectos
+  $("proyectosGrid").innerHTML = T.proyectos.length ? T.proyectos.map(p => `
+    <article class="card">
+      <h3>${esc(p.nombre)}</h3>
+      <p>${esc(p.descripcion)}</p>
+      ${p.tecnologias?.length ? `<ul class="tags">${p.tecnologias.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+      <div class="row">
+        ${p.demo ? `<a href="${safeUrl(p.demo)}" target="_blank" rel="noopener">${U.demo}</a>` : ""}
+        ${p.codigo ? `<a href="${safeUrl(p.codigo)}" target="_blank" rel="noopener">${U.code}</a>` : ""}
+      </div>
+    </article>`).join("")
+    : [1,2,3].map(n => vacia(`${U.empty_project} ${n}`, U.empty_project_txt)).join("");
+
+  // Experiencia
+  $("exp").innerHTML = T.experiencia.length ? T.experiencia.map(e => `
+    <div class="item">
+      <h3>${esc(e.cargo || U.add_title)} · ${esc(e.empresa)}</h3>
+      <div class="meta">${esc(e.periodo)}</div>
+      <ul>${e.logros.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>
+    </div>`).join("") : vacia(U.h_exp, U.empty_exp);
+
+  // Formación
+  $("edu").innerHTML = T.formacion.map(f => `
+    <div class="item">
+      <h3>${esc(f.titulo)}</h3>
+      <div class="meta">${esc(f.institucion)} · ${esc(f.periodo)}${f.estado ? " · " + esc(f.estado) : ""}</div>
+    </div>`).join("");
+
+  // Certificaciones
+  $("certs").innerHTML = T.certificaciones.map(c =>
+    `<li><b>${esc(c.nombre)}</b><span>${esc(c.emisor)} · ${esc(c.fecha)}</span></li>`).join("");
+
+  // Blog
+  $("blogGrid").innerHTML = T.blog.length ? T.blog.map(b => `
+    <article class="card">
+      <h3>${b.url ? `<a href="${safeUrl(b.url)}" target="_blank" rel="noopener">${esc(b.titulo)}</a>` : esc(b.titulo)}</h3>
+      <div class="meta">${esc(b.fecha)}</div>
+      <p>${esc(b.resumen)}</p>
+    </article>`).join("")
+    : [1,2].map(n => vacia(`${U.empty_post} ${n}`, U.empty_post_txt)).join("");
+
+  // Contacto
+  $("contactoTxt").textContent = T.contactoTexto;
+  $("contactList").innerHTML = [
+    T.ciudad && `📍 ${esc(T.ciudad)}`,
+    K.email && `✉️ <a href="mailto:${esc(K.email)}">${esc(K.email)}</a>`,
+    K.telefono && `📞 <a href="tel:${esc(K.telefono.replace(/\s/g,''))}">${esc(K.telefono)}</a>`
+  ].filter(Boolean).map(x=>`<li>${x}</li>`).join("");
+  $("contactBtns").innerHTML =
+    (K.email ? `<a class="btn primary" href="mailto:${esc(K.email)}">${U.btn_mail}</a>` : "") +
+    (K.linkedin ? `<a class="btn ghost" href="${safeUrl(K.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>` : "") +
+    (K.github ? `<a class="btn ghost" href="${safeUrl(K.github)}" target="_blank" rel="noopener">GitHub</a>` : "");
+
+  $("footer").textContent = `© ${new Date().getFullYear()} ${K.nombre}`;
+}
+
+// Idioma inicial: el elegido antes > el forzado en CONFIG > el del navegador
+function idiomaInicial(){
+  let guardado = null;
+  try { guardado = localStorage.getItem("lang"); } catch(e){}
+  if (guardado === "es" || guardado === "en") return guardado;
+  if (K.idiomaInicial === "es" || K.idiomaInicial === "en") return K.idiomaInicial;
+  return (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+}
+
+document.querySelectorAll(".langs button").forEach(b =>
+  b.addEventListener("click", () => render(b.dataset.lang)));
+
+$("themeBtn").addEventListener("click", () => {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light";
+});
+
+render(idiomaInicial());
+</script>
+</body>
+</html>
