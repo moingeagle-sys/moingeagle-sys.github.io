@@ -223,8 +223,12 @@
 <footer><div class="wrap" id="footer"></div></footer>
 
 <script>
+/* =====================================================================
+   CONFIG: AQUÍ EDITAS TODO TU CONTENIDO
+   ===================================================================== */
 const CONFIG = {
 
+  /* ---------- DATOS COMUNES (no dependen del idioma) ---------- */
   comun: {
     nombre: "Mario Betancourth",
     foto: "foto.jpg",
@@ -236,6 +240,7 @@ const CONFIG = {
     idiomaInicial: ""
   },
 
+  /* ---------- ESPAÑOL ---------- */
   es: {
     rol: "Desarrollador / Especialista IT",
     frase: "Construyo software y administro IT. Me apasionan el desarrollo de videojuegos y la tecnología.",
@@ -286,29 +291,34 @@ const CONFIG = {
     certificaciones: [
       { nombre: "Python", emisor: "Cisco Networking Academy", fecha: "Nov 2026" },
       { nombre: "Microsoft Power BI Data Analyst (PL-300)", emisor: "Microsoft", fecha: "Oct 2026" },
-      { nombre: "Procesos de soporte técnico para el mantenimiento de equipos de cómputo", emisor: "servicio nacional de aprendizaje SENA", fecha: "Sep 2026" },
+      { nombre: "Procesos de soporte técnico para el mantenimiento de equipos de cómputo", emisor: "SENA", fecha: "Sep 2026" },
       { nombre: "Cybersecurity Defense Analyst Career Path", emisor: "Cisco Networking Academy", fecha: "Ago 2026" },
-      { nombre: "Implementación de servicios de computación en la nube", emisor: "servicio nacional de aprendizaje SENA", fecha: "Ago 2026" },
-      { nombre: "Logística y cadena de suministros", emisor: "CursaApp", fecha: "Ago 2026" },
-      { nombre: "Técnico de computación", emisor: "CursaApp", fecha: "Ago 2026" },
-      { nombre: "Integración de tecnologías del aprendizaje, la participación y el conocimiento", emisor: "servicio nacional de aprendizaje SENA", fecha: "Jul 2026" },
+      { nombre: "Implementación de servicios de computación en la nube", emisor: "SENA", fecha: "Ago 2026" },
+      { nombre: "Logística y cadena de suministros", emisor: "Coursera", fecha: "Ago 2026" },
+      { nombre: "Técnico de computación", emisor: "Coursera", fecha: "Ago 2026" },
+      { nombre: "Integración de tecnologías del aprendizaje, la participación y el conocimiento", emisor: "SENA", fecha: "Jul 2026" },
       { nombre: "Programación en JavaScript", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
       { nombre: "CRM", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
       { nombre: "Programación en Java", emisor: "Politécnico de Colombia", fecha: "Ago 2025" },
       { nombre: "Programación en PHP", emisor: "Politécnico de Colombia", fecha: "Jul 2025" }
     ],
-    
+
+    /* Ejemplo de entrada de blog:
+       { titulo:"Lo que aprendí de Docker", fecha:"Nov 2026", resumen:"Dos líneas.", url:"https://..." },
+    */
     blog: [
       { titulo:"Lo que aprendí de Unity", fecha:"2025", resumen:"Construir bases y logica para un juego", url:"https://..." },
     ]
   },
 
+  /* ---------- ENGLISH ---------- */
   en: {
     rol: "Developer / IT Specialist",
     frase: "I build software and manage IT. I'm passionate about game development and technology.",
     sobreMi: [
       "Multidisciplinary professional with IT experience and knowledge of HTML, CSS, C#, C++, PHP, Java, JavaScript and Python. I have knowledge of SQL databases, cybersecurity, customer service and packaging and shipping logistics.",
-      "Upper-intermediate English (B2+) with experience as an interpreter. I work well in teams and enjoy solving problems efficiently. I am currently studying Software Analysis and Development at SENA (online program).
+      "Upper-intermediate English (B2+) with experience as an interpreter. I work well in teams and enjoy solving problems efficiently. I am currently studying Software Analysis and Development at SENA (online program).",
+      ""   // <- write a more personal paragraph here or delete it
     ],
     disponibilidad: "Available immediately · Remote / Hybrid / On-site",
     ciudad: "Cali, Colombia",
@@ -323,6 +333,9 @@ const CONFIG = {
       { grupo: "Languages (spoken)", items: ["Spanish (native)","English (B2+)"] }
     ],
 
+    /* Project example (copy it inside the brackets):
+       { nombre:"My Unity game", descripcion:"What it does.", tecnologias:["Unity","C#"], demo:"https://...", codigo:"https://github.com/..." },
+    */
     proyectos: [
       { nombre:"Allegory of fate", descripcion:"A 2d top down RPG game.", tecnologias:["Unity","C#"], demo:"https://shadow-heartbeat.itch.io/allegory-of-fate", codigo:"https://github.com/moingeagle-sys/Allegory_of_fate" },
       { nombre:"Ashes of winter", descripcion:"3D game - horror games history", tecnologias:["godot","C#"] },
@@ -355,8 +368,8 @@ const CONFIG = {
       { nombre: "Technical Support Processes for Computer Equipment Maintenance", emisor: "SENA", fecha: "Sep 2026" },
       { nombre: "Cybersecurity Defense Analyst Career Path", emisor: "Cisco Networking Academy", fecha: "Aug 2026" },
       { nombre: "Implementation of Cloud Computing Services", emisor: "SENA", fecha: "Aug 2026" },
-      { nombre: "Logistics and Supply Chain", emisor: "CursaApp", fecha: "Aug 2026" },
-      { nombre: "Computer Technician", emisor: "CursaApp", fecha: "Aug 2026" },
+      { nombre: "Logistics and Supply Chain", emisor: "Coursera", fecha: "Aug 2026" },
+      { nombre: "Computer Technician", emisor: "Coursera", fecha: "Aug 2026" },
       { nombre: "Integration of Learning, Participation and Knowledge Technologies", emisor: "SENA", fecha: "Jul 2026" },
       { nombre: "JavaScript Programming", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
       { nombre: "CRM", emisor: "Politécnico de Colombia", fecha: "Jun 2026" },
@@ -372,7 +385,10 @@ const CONFIG = {
     ]
   }
 };
-  
+
+/* =====================================================================
+   TEXTOS FIJOS DE LA INTERFAZ (títulos de secciones, botones)
+   ===================================================================== */
 const UI = {
   es: {
     nav_about:"Sobre mí", nav_skills:"Habilidades", nav_projects:"Proyectos", nav_exp:"Experiencia", nav_blog:"Blog", nav_contact:"Contacto",
@@ -396,6 +412,9 @@ const UI = {
   }
 };
 
+/* =====================================================================
+   CÓDIGO QUE DIBUJA LA PÁGINA (no necesitas modificarlo)
+   ===================================================================== */
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl = u => /^(https?:|mailto:|tel:|#|[\w./-]+$)/i.test(u) ? esc(u) : "#";
@@ -406,9 +425,11 @@ function render(lang){
   document.documentElement.lang = lang;
   try { localStorage.setItem("lang", lang); } catch(e){}
 
+  // Textos fijos + botones de idioma
   document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = U[el.dataset.i18n]);
   document.querySelectorAll(".langs button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
 
+  // Marca y hero
   const partes = K.nombre.split(" ");
   const iniciales = partes.filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
   $("brand").textContent = partes[0].toLowerCase() + "@portfolio:~$";
@@ -424,14 +445,17 @@ function render(lang){
     `<a class="btn ghost" href="#proyectos">${U.btn_projects}</a>` +
     (cv ? `<a class="btn ghost" href="${safeUrl(cv)}" download>${U.btn_cv}</a>` : "");
 
+  // Sobre mí
   $("sobre").innerHTML = T.sobreMi.filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("")
     + (T.disponibilidad ? `<p class="meta">${esc(T.disponibilidad)}</p>` : "");
 
+  // Habilidades
   $("skills").innerHTML = T.habilidades.map(g =>
     `<div class="card"><h3>${esc(g.grupo)}</h3><ul class="tags" style="margin:0">${g.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
 
   const vacia = (t, x) => `<div class="card empty"><h3>${t}</h3><p>${x}</p></div>`;
 
+  // Proyectos
   $("proyectosGrid").innerHTML = T.proyectos.length ? T.proyectos.map(p => `
     <article class="card">
       <h3>${esc(p.nombre)}</h3>
@@ -444,6 +468,7 @@ function render(lang){
     </article>`).join("")
     : [1,2,3].map(n => vacia(`${U.empty_project} ${n}`, U.empty_project_txt)).join("");
 
+  // Experiencia
   $("exp").innerHTML = T.experiencia.length ? T.experiencia.map(e => `
     <div class="item">
       <h3>${esc(e.cargo || U.add_title)} · ${esc(e.empresa)}</h3>
@@ -451,15 +476,18 @@ function render(lang){
       <ul>${e.logros.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>
     </div>`).join("") : vacia(U.h_exp, U.empty_exp);
 
+  // Formación
   $("edu").innerHTML = T.formacion.map(f => `
     <div class="item">
       <h3>${esc(f.titulo)}</h3>
       <div class="meta">${esc(f.institucion)} · ${esc(f.periodo)}${f.estado ? " · " + esc(f.estado) : ""}</div>
     </div>`).join("");
 
+  // Certificaciones
   $("certs").innerHTML = T.certificaciones.map(c =>
     `<li><b>${esc(c.nombre)}</b><span>${esc(c.emisor)} · ${esc(c.fecha)}</span></li>`).join("");
 
+  // Blog
   $("blogGrid").innerHTML = T.blog.length ? T.blog.map(b => `
     <article class="card">
       <h3>${b.url ? `<a href="${safeUrl(b.url)}" target="_blank" rel="noopener">${esc(b.titulo)}</a>` : esc(b.titulo)}</h3>
@@ -468,6 +496,7 @@ function render(lang){
     </article>`).join("")
     : [1,2].map(n => vacia(`${U.empty_post} ${n}`, U.empty_post_txt)).join("");
 
+  // Contacto
   $("contactoTxt").textContent = T.contactoTexto;
   $("contactList").innerHTML = [
     T.ciudad && `📍 ${esc(T.ciudad)}`,
@@ -482,6 +511,7 @@ function render(lang){
   $("footer").textContent = `© ${new Date().getFullYear()} ${K.nombre}`;
 }
 
+// Idioma inicial: el elegido antes > el forzado en CONFIG > el del navegador
 function idiomaInicial(){
   let guardado = null;
   try { guardado = localStorage.getItem("lang"); } catch(e){}
