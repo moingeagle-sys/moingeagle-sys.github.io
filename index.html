@@ -28,7 +28,6 @@
   ::selection{background:var(--accent);color:var(--on-accent)}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-  /* Navegación */
   header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
     backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
@@ -49,7 +48,6 @@
   @media(max-width:720px){.links > a.hide-m{display:none}}
   @media(max-width:560px){.links > a{display:none}}
 
-  /* Hero: ventana de terminal */
   .hero{padding:56px 0 48px}
   .hero .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
   @media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.avatar{order:-1}}
@@ -93,8 +91,7 @@
     display:grid;place-items:center;font-size:46px;font-weight:700;overflow:hidden;
     border:2px solid var(--accent);box-shadow:0 0 28px color-mix(in srgb,var(--accent) 25%,transparent)}
   .avatar img{width:100%;height:100%;object-fit:cover}
-
-  /* Secciones */
+  
   section{padding:52px 0;border-top:1px dashed var(--border)}
   h2{font-size:22px;margin:0 0 24px;color:var(--heading)}
   h2::before{content:"## ";color:var(--accent)}
@@ -115,7 +112,6 @@
   .meta{color:var(--muted);font-size:13px}
   .about p{max-width:760px;margin:0 0 14px}
 
-  /* Línea de tiempo tipo git log */
   .timeline{border-left:1px solid var(--border);margin-left:6px;padding-left:22px}
   .item{position:relative;margin-bottom:26px}
   .item::before{content:"";position:absolute;left:-28px;top:7px;width:11px;height:11px;
@@ -124,12 +120,10 @@
   .item .meta{margin:2px 0 8px}
   .item ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
 
-  /* Habilidades */
   .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
   .skills h3{margin:0 0 10px;font-size:14px;color:var(--blue)}
   .skills h3::before{content:"// ";color:var(--muted)}
 
-  /* Certificaciones */
   .certs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
   .certs li{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:6px;
     padding:10px 14px 10px 34px;font-size:13.5px}
@@ -137,7 +131,6 @@
   .certs b{display:block;font-weight:600;color:var(--heading)}
   .certs span{color:var(--muted)}
 
-  /* Contacto y pie */
   .contact-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px}
   footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px;border-top:1px dashed var(--border)}
   footer .wrap::before{content:"$ exit  # ";color:var(--accent)}
@@ -223,12 +216,9 @@
 <footer><div class="wrap" id="footer"></div></footer>
 
 <script>
-/* =====================================================================
-   CONFIG: AQUÍ EDITAS TODO TU CONTENIDO
-   ===================================================================== */
-const CONFIG = {
 
-  /* ---------- DATOS COMUNES (no dependen del idioma) ---------- */
+const CONFIG = {
+  
   comun: {
     nombre: "Mario Betancourth",
     foto: "foto.jpg",
@@ -240,7 +230,6 @@ const CONFIG = {
     idiomaInicial: ""
   },
 
-  /* ---------- ESPAÑOL ---------- */
   es: {
     rol: "Desarrollador / Especialista IT",
     frase: "Construyo software y administro IT. Me apasionan el desarrollo de videojuegos y la tecnología.",
@@ -303,16 +292,12 @@ const CONFIG = {
       { nombre: "Programación en Java", emisor: "Politécnico de Colombia", fecha: "Ago 2025" },
       { nombre: "Programación en PHP", emisor: "Politécnico de Colombia", fecha: "Jul 2025" }
     ],
-
-    /* Ejemplo de entrada de blog:
-       { titulo:"Lo que aprendí de Docker", fecha:"Nov 2026", resumen:"Dos líneas.", url:"https://..." },
-    */
+    
     blog: [
       { titulo:"Lo que aprendí de Unity", fecha:"2025", resumen:"Construir bases y logica para un juego", url:"https://..." },
     ]
   },
 
-  /* ---------- ENGLISH ---------- */
   en: {
     rol: "Developer / IT Specialist",
     frase: "I build software and manage IT. I'm passionate about game development and technology.",
@@ -334,9 +319,6 @@ const CONFIG = {
       { grupo: "Languages (spoken)", items: ["Spanish (native)","English (B2+)"] }
     ],
 
-    /* Project example (copy it inside the brackets):
-       { nombre:"My Unity game", descripcion:"What it does.", tecnologias:["Unity","C#"], demo:"https://...", codigo:"https://github.com/..." },
-    */
     proyectos: [
       { nombre:"Downloads Organizer", descripcion:"Command-line tool that sorts a folder by moving each file into a subfolder based on its type. Includes a dry-run mode (--dry-run).", tecnologias:["Python","CLI","Automation"], codigo:"https://github.com/moingeagle-sys/organizador-descargas" },
       { nombre:"Allegory of fate", descripcion:"A 2d top down RPG game.", tecnologias:["Unity","C#"], demo:"https://shadow-heartbeat.itch.io/allegory-of-fate", codigo:"https://github.com/moingeagle-sys/Allegory_of_fate" },
@@ -378,19 +360,13 @@ const CONFIG = {
       { nombre: "Java Programming", emisor: "Politécnico de Colombia", fecha: "Aug 2025" },
       { nombre: "PHP Programming", emisor: "Politécnico de Colombia", fecha: "Jul 2025" }
     ],
-
-    /* Blog post example:
-       { titulo:"What I learned about Docker", fecha:"Nov 2026", resumen:"Two lines.", url:"https://..." },
-    */
+    
     blog: [
       { titulo:"What I learned about Unity", fecha:"2025", resumen:"Building the foundations and logic for a game.", url:"https://..." },
     ]
   }
 };
 
-/* =====================================================================
-   TEXTOS FIJOS DE LA INTERFAZ (títulos de secciones, botones)
-   ===================================================================== */
 const UI = {
   es: {
     nav_about:"Sobre mí", nav_skills:"Habilidades", nav_projects:"Proyectos", nav_exp:"Experiencia", nav_blog:"Blog", nav_contact:"Contacto",
@@ -414,9 +390,6 @@ const UI = {
   }
 };
 
-/* =====================================================================
-   CÓDIGO QUE DIBUJA LA PÁGINA (no necesitas modificarlo)
-   ===================================================================== */
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl = u => /^(https?:|mailto:|tel:|#|[\w./-]+$)/i.test(u) ? esc(u) : "#";
@@ -426,12 +399,10 @@ function render(lang){
   const T = CONFIG[lang], U = UI[lang];
   document.documentElement.lang = lang;
   try { localStorage.setItem("lang", lang); } catch(e){}
-
-  // Textos fijos + botones de idioma
+  
   document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = U[el.dataset.i18n]);
   document.querySelectorAll(".langs button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
 
-  // Marca y hero
   const partes = K.nombre.split(" ");
   const iniciales = partes.filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
   $("brand").textContent = partes[0].toLowerCase() + "@portfolio:~$";
@@ -447,17 +418,14 @@ function render(lang){
     `<a class="btn ghost" href="#proyectos">${U.btn_projects}</a>` +
     (cv ? `<a class="btn ghost" href="${safeUrl(cv)}" download>${U.btn_cv}</a>` : "");
 
-  // Sobre mí
   $("sobre").innerHTML = T.sobreMi.filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join("")
     + (T.disponibilidad ? `<p class="meta">${esc(T.disponibilidad)}</p>` : "");
 
-  // Habilidades
   $("skills").innerHTML = T.habilidades.map(g =>
     `<div class="card"><h3>${esc(g.grupo)}</h3><ul class="tags" style="margin:0">${g.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
 
   const vacia = (t, x) => `<div class="card empty"><h3>${t}</h3><p>${x}</p></div>`;
 
-  // Proyectos
   $("proyectosGrid").innerHTML = T.proyectos.length ? T.proyectos.map(p => `
     <article class="card">
       <h3>${esc(p.nombre)}</h3>
@@ -470,7 +438,6 @@ function render(lang){
     </article>`).join("")
     : [1,2,3].map(n => vacia(`${U.empty_project} ${n}`, U.empty_project_txt)).join("");
 
-  // Experiencia
   $("exp").innerHTML = T.experiencia.length ? T.experiencia.map(e => `
     <div class="item">
       <h3>${esc(e.cargo || U.add_title)} · ${esc(e.empresa)}</h3>
@@ -478,18 +445,15 @@ function render(lang){
       <ul>${e.logros.map(l=>`<li>${esc(l)}</li>`).join("")}</ul>
     </div>`).join("") : vacia(U.h_exp, U.empty_exp);
 
-  // Formación
   $("edu").innerHTML = T.formacion.map(f => `
     <div class="item">
       <h3>${esc(f.titulo)}</h3>
       <div class="meta">${esc(f.institucion)} · ${esc(f.periodo)}${f.estado ? " · " + esc(f.estado) : ""}</div>
     </div>`).join("");
 
-  // Certificaciones
   $("certs").innerHTML = T.certificaciones.map(c =>
     `<li><b>${esc(c.nombre)}</b><span>${esc(c.emisor)} · ${esc(c.fecha)}</span></li>`).join("");
 
-  // Blog
   $("blogGrid").innerHTML = T.blog.length ? T.blog.map(b => `
     <article class="card">
       <h3>${b.url ? `<a href="${safeUrl(b.url)}" target="_blank" rel="noopener">${esc(b.titulo)}</a>` : esc(b.titulo)}</h3>
@@ -498,7 +462,6 @@ function render(lang){
     </article>`).join("")
     : [1,2].map(n => vacia(`${U.empty_post} ${n}`, U.empty_post_txt)).join("");
 
-  // Contacto
   $("contactoTxt").textContent = T.contactoTexto;
   $("contactList").innerHTML = [
     T.ciudad && `📍 ${esc(T.ciudad)}`,
@@ -513,7 +476,6 @@ function render(lang){
   $("footer").textContent = `© ${new Date().getFullYear()} ${K.nombre}`;
 }
 
-// Idioma inicial: el elegido antes > el forzado en CONFIG > el del navegador
 function idiomaInicial(){
   let guardado = null;
   try { guardado = localStorage.getItem("lang"); } catch(e){}
